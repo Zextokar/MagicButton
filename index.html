@@ -29,6 +29,9 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            background-image: url(fondo.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         h2 {
@@ -36,6 +39,17 @@
             text-align: center;
             font-family: 'VT323', monospace;
             margin-top: 30px;
+            color: white;
+        }
+
+        #like {
+            font-size: 70px;
+            text-align: center;
+            font-family: 'VT323', monospace;
+            margin-top: 30px;
+            color: white;
+            background: linear-gradient(to right, #ff0000, #0000ff);
+            border-radius: 10px;
         }
 
         button {
@@ -43,26 +57,45 @@
             justify-content: center;
             align-items: center;
         }
+
+        .titulo {
+            background: linear-gradient(to right, #ff0000, #0000ff);
+            border-radius: 10px;
+        }
+
+        #magic-video {
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(250, 250, 250, 0.3);
+        }
     </style>
 </head>
 
 <body>
-    <h2 id="magic-heading">
+    <h1 id="like">Danos un like</h1>
+    <h2 id="magic-heading" class="titulo">
         El botón mágico
     </h2>
     <button type="button" class="btn btn-primary" id="magic-button">Haz click Aqui</button>
     <video src="/baile.mp4" autoplay loop id="magic-video" style="display: none;"></video>
-    
+
     <script>
         const magicButton = document.getElementById('magic-button');
         const magicVideo = document.getElementById('magic-video');
         const magicHeading = document.getElementById('magic-heading');
-    
+        const magictitle = document.getElementById('like');
+
         magicButton.addEventListener('click', () => {
             magicVideo.style.display = 'block';
             magicButton.style.display = 'none';
             magicHeading.style.display = 'none';
+            magictitle.style.display = 'none';
             magicVideo.play();
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("contextmenu", function (event) {
+                event.preventDefault();
+            });
         });
     </script>
 </body>
