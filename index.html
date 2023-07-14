@@ -11,6 +11,7 @@
     <title>Magic Button</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 
         .video {
@@ -68,28 +69,79 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(250, 250, 250, 0.3);
         }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 40px;
+            }
+
+            video {
+                width: 100%;
+            }
+
+            .social-icons a {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h2 {
+                font-size: 30px;
+            }
+
+            video {
+                width: 100%;
+            }
+
+            .social-icons a {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <h1 id="like">Danos un like</h1>
     <h2 id="magic-heading" class="titulo">
         El botón mágico
     </h2>
     <button type="button" class="btn btn-primary" id="magic-button">Haz click Aqui</button>
-    <video src="/baile.mp4" autoplay loop id="magic-video" style="display: none;"></video>
+    <video src="/baile.mp4" loop id="magic-video" style="display: none;"></video>
 
+    <div class="social-icons">
+        <a href="https://github.com/Zextokar" id="github-link"><i class="fab fa-github" id="github"></i>Sígueme en Github</a>
+        <a href="https://twitter.com/Zextokar_28" id="twitter-link"><i class="fab fa-twitter" id="twitter"></i>Sígueme en Twitter</a>
+    </div>
+
+    <script src="https://kit.fontawesome.com/f0841ad563.js" crossorigin="anonymous"></script>
     <script>
         const magicButton = document.getElementById('magic-button');
         const magicVideo = document.getElementById('magic-video');
         const magicHeading = document.getElementById('magic-heading');
         const magictitle = document.getElementById('like');
+        const magicGithubLink = document.getElementById('github-link');
+        const magicTwitterLink = document.getElementById('twitter-link');
 
         magicButton.addEventListener('click', () => {
             magicVideo.style.display = 'block';
             magicButton.style.display = 'none';
             magicHeading.style.display = 'none';
-            magictitle.style.display = 'none';
+            magicGithubLink.style.display = 'none';
+            magicTwitterLink.style.display = 'none';
             magicVideo.play();
         });
 
